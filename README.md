@@ -1,6 +1,6 @@
 # ubuntu16-magentoce2-nginx-php7-supervisord-ssh
 
-A Dockerfile that installs the latest magento on Ubuntu 16.04 with nginx 1.10.0, php-fpm7.0, php7.0 APC User Cache and openssh. You can also handle the services using supervisord.
+Run the latest magento 2 CE on Ubuntu 16.04 with nginx 1.10.0, php-fpm7.0 and openssh. You can also handle the services using supervisord.
 
 ###Todo:
 
@@ -31,7 +31,7 @@ The -p 80:80 maps the internal docker port 80 to the outside port 80 of the host
 The -p 9011:9011 is using for supervisord, listing out all services status. 
 
 ```bash
-$ sudo docker run -p 8080:80 -p 2222:22 -p 9011:9011 --name docker-name -d thomasvan/ubuntu16-magentoce2-nginx-php7-supervisord-ssh:latest
+$ sudo docker run -v <your-webapp-root-directory>:/home/magento/files/html -p 8080:80 -p 2222:22 -p 9011:9011 --name docker-name -d thomasvan/ubuntu16-magentoce2-nginx-php7-supervisord-ssh:latest
 ```
 
 If you want to enable https, please map port 443 as follow:
@@ -70,19 +70,20 @@ You can also SSH to your container on 127.0.0.1:2222. The default password is *m
 ```
 $ ssh -p 2222 magento@127.0.0.1
 # To drop into root
-$ sudo -s
+$ su - # then enter the root password
 ```
 
 Now that you've got SSH access, you can setup your FTP client the same way, or the SFTP Sublime Text plugin, for easy access to files.
 
-To get the MySQL's and magento user's password, check the top of the docker container logs for it:
+To get the root, MySQL and magento user's password, check the top of the docker container logs:
 
 ```
 $ docker logs <container-id>
 ```
 or ssh to your container and view those files:
 ```
-$ cat /magento.txt
-$ cat /magento-db-pw.txt
+$ cat /root-pw.txt
+$ cat /magento-pw.txt
 $ cat /mysql-root-pw.txt
+$ cat /magento-db-pw.txt
 ```
