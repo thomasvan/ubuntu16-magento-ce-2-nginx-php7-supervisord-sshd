@@ -85,5 +85,5 @@ or ssh to your container and view those files:
 $ cat /root-pw.txt
 $ cat /magento-pw.txt
 $ cat /mysql-root-pw.txt
-$ cat /magento-db-pw.txt
+$ cat /mysql-magento-pw.txt
 ```
