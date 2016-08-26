@@ -36,7 +36,7 @@ $ docker run -v <your-webapp-root-directory>:/home/magento/files/html -p 8080:80
 
 If you want to enable https, please map port 443 as follow:
 ```bash
-$ docker run -v <your-webapp-root-directory>:/home/magento/files/html -p 8080:80 -p 443:443 -p 2222:22 -p 9011:9011 --name docker-name -d thomasvan/ubuntu16-magentoce2-nginx-php7-supervisord-ssh:latest
+$ docker run -v <your-webapp-root-directory>:/home/magento/files/html -p 8080:80 -p 4443:443 -p 2222:22 -p 9011:9011 --name docker-name -d thomasvan/ubuntu16-magentoce2-nginx-php7-supervisord-ssh:latest
 ```
 
 
@@ -70,12 +70,20 @@ You can also SSH to your container on 127.0.0.1:2222. See below instructions to 
 ```
 $ ssh -p 2222 magento@127.0.0.1
 # To drop into root
-$ su - # then enter the root password
+$ sudo -s
 ```
 
 Now that you've got SSH access, you can setup your FTP client the same way, or the SFTP Sublime Text plugin, for easy access to files.
 
-To get the root, MySQL and magento user's password, check the top of the docker container logs:
+SSH/SFTP user: <b>magento/magento</b>
+
+Root user: <b>root/root</b>
+
+MySQL magento user: <b>magento/magento</b>
+
+MySQL root user: <b>root/root</b>
+
+You can also see those information by checking the top of the docker container logs:
 
 ```
 $ docker logs <container-id>
@@ -88,4 +96,4 @@ $ cat /mysql-root-pw.txt
 $ cat /mysql-magento-pw.txt
 ```
 
-!IMPORTANT! Please restart the nginx in localhost:9011 after magento webroot folder mounted, since the nginx read the configuration from nginx.conf.sample.
+<b>!IMPORTANT! Please restart the nginx in localhost:9011 after magento webroot folder mounted, since the nginx read the configuration from nginx.conf.sample.</b>
