@@ -75,11 +75,11 @@ $ sudo -s # then enter `magento` as the password
 
 Now that you've got SSH access, you can setup your FTP client the same way, or the SFTP Sublime Text plugin, for easy access to files.
 
-SSH/SFTP user: <b>magento/magento</b>
+SSH/SFTP user: magento/magento
 
-MySQL magento user: <b>magento/magento</b>
+MySQL magento user: magento/magento
 
-MySQL root user: <b>root/root</b>
+MySQL root user: root/root
 
 You can also see those information by checking the top of the docker container logs:
 
@@ -94,4 +94,4 @@ $ cat /mysql-root-pw.txt
 $ cat /mysql-magento-pw.txt
 ```
 
-<b>!IMPORTANT! Please restart the nginx in localhost:9011 after magento webroot folder mounted, since the nginx read the configuration from nginx.conf.sample.</b>
+!IMPORTANT! Please restart the nginx in localhost:9011 after magento webroot folder mounted, since the nginx read the configuration from nginx.conf.sample.
