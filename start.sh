@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f /magento-db-pw.txt ]; then
+if [ ! -f /magento-pw.txt ]; then
     #mysql has to be started this way as it doesn't work to call from /etc/init.d
     /usr/bin/mysqld_safe &
     sleep 10s
@@ -31,7 +31,7 @@ fi
 
 if [ ! -f /home/magento/files/html/nginx.conf.sample ]; then
     MAGENTO_DB="magento"
-    MAGENTO_PASSWORD=`cat /magento-db-pw.txt`
+    MAGENTO_PASSWORD=`cat /magento-pw.txt`
     touch /home/magento/files/html/nginx.conf.sample
     chown -R magento: /home/magento/files/html/
 fi
