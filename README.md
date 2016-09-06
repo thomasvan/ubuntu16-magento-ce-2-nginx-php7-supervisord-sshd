@@ -65,19 +65,17 @@ You can start/stop/restart and view the error logs of nginx and php-fpm services
 http://127.0.0.1:9011
 ```
 
-You can also SSH to your container on 127.0.0.1:2222. See below instructions to get magento and root password.
+You can also SSH to your container on 127.0.0.1:2222. See below instructions:
 
 ```
 $ ssh -p 2222 magento@127.0.0.1
 # To drop into root
-$ sudo -s
+$ sudo -s # then enter `magento` as the password
 ```
 
 Now that you've got SSH access, you can setup your FTP client the same way, or the SFTP Sublime Text plugin, for easy access to files.
 
 SSH/SFTP user: <b>magento/magento</b>
-
-Root user: <b>root/root</b>
 
 MySQL magento user: <b>magento/magento</b>
 
