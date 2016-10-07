@@ -46,7 +46,7 @@ Start your newly created container, named *docker-name*.
 $ docker start docker-name
 ```
 
-After starting the container ubuntu16-magentoce2-nginx-php7-supervisord-ssh checks to see if it has started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
+After starting the container ubuntu16-magentoee2-nginx-php7-elasticsearch-supervisord-ssh, please check to see if it has started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
 
 ```
 $ docker ps
